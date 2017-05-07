@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
+      <meta charset="UTF-8">
+      <title>Electron Workshop</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <div id="main-container">
+      <textarea id="search" placeholder="Search Keywork"></textarea>
+      <div>
+        <img id="img-show" src="https://cdn-images-1.medium.com/max/400/1*GS-t3eNz9Jy7YWKIxxmJPg.png" />
+      </div>
+    </div>
   </body>
 
   <script>
-    // You can also require other files to run in this process
-    require('./renderer.js')
+      // You can also require other files to run in this process
+      require('./renderer.js')
   </script>
 </html>
