@@ -3,6 +3,15 @@
 // All of the Node.js APIs are available in this process.
 
 let axios = require('axios');
+const ipc = require('electron').ipcRenderer
+
+ipc.on("showSurprise", (event, data) => {
+	document.getElementById('secretSection').style.display="block"
+})
+
+ipc.on("hide", (event) => {
+	document.getElementById('secretSection').style.display="none"
+})
 
 const apiUrl = (term) => {
 	return `http://api.giphy.com/v1/gifs/search?q=${term}&api_key=dc6zaTOxFJmzC`;
