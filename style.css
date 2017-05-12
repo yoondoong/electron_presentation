@@ -42,3 +42,18 @@ body {
 	max-height: 65vh;
 	max-width: 60vw;
 }
+
+#secretSection{
+	display: flex;
+	justify-content: space-around;
+}
+
+#secret_puppy{
+	display: none;
+}
+
+.secret_text{
+	color: red;
+	font-size: 25px;
+	font-family: sans-serif;
+}

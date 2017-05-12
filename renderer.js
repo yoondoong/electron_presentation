@@ -6,7 +6,11 @@ let axios = require('axios');
 const ipc = require('electron').ipcRenderer
 
 ipc.on("showSurprise", (event, data) => {
-	document.getElementById('secretSection').style.display="block"
+	if (document.getElementById('secretSection').style.display == "none"){
+			document.getElementById('secretSection').style.display = "flex";
+	} else {
+		document.getElementById('secretSection').style.display = "none";
+	}
 })
 
 ipc.on("hide", (event) => {
