@@ -28,18 +28,60 @@ npm install
 # Run the app
 npm start
 ```
+STEPS FOR THE WORKSHOP
 
-Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
+##Step 1:
+Import our renderer.js into our index.html. This way, the search bar will display gifs when things are typed into it.
 
-## Resources for Learning Electron
+CODE
+```bash
+require('./renderer.js')
+```
 
-- [electron.atom.io/docs](http://electron.atom.io/docs) - all of Electron's documentation
-- [electron.atom.io/community/#boilerplates](http://electron.atom.io/community/#boilerplates) - sample starter apps created by the community
-- [electron/electron-quick-start](https://github.com/electron/electron-quick-start) - a very basic starter Electron app
-- [electron/simple-samples](https://github.com/electron/simple-samples) - small applications with ideas for taking them further
-- [electron/electron-api-demos](https://github.com/electron/electron-api-demos) - an Electron app that teaches you how to use Electron
-- [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps) - small demo apps for the various Electron APIs
+##Step 2:
+Set up global keyboard shortcut in main.js. First we do this by importing ipc and global keyboard shortcut.
 
-## License
+CODE
+```bash
+const globalShortcut = electron.globalShortcut
+const ipc = require('electron').ipcMain
+```
 
-[CC0 1.0 (Public Domain)](LICENSE.md)
+##Step 3: 
+Now go to app.on 'ready'. Inside here, we set up a const 'ret' to which we register a keyboard shortcut.
+This means that every time our designated keyboard shortcut is pressed, it sends a string. 
+
+CODE
+```bash
+  const ret = globalShortcut.register('CommandOrControl+P', () => {
+    mainWindow.webContents.send('showSurprise')
+  });
+
+  if (!ret) {
+    console.log('registration failed');
+  }
+```
+
+##Step 4:
+Now we want to make sure that our renderer js which is actually run in our index.html can receive 
+the prompts from our keyboard shortcut. At the top of renderer.js, establish the ipc variable. 
+
+CODE
+```bash
+const ipc = require('electron').ipcRenderer
+```
+
+##Step 5:
+Finally, we can now write a function that runs every time our renderer.js receives the prompt from
+the keyboard shortcut. 
+
+CODE
+```bash
+ipc.on("showSurprise", (event, data) => {
+	if (document.getElementById('secretSection').style.display == "none"){
+			document.getElementById('secretSection').style.display = "flex";
+	} else {
+		document.getElementById('secretSection').style.display = "none";
+	}
+})
+```
