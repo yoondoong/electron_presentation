@@ -10,7 +10,7 @@ body {
 	width: 80vw;
 	margin-left: 10vw;
 	top: 10vh;
-	position: fixed;
+	position: absolute;
 
 	resize: none;
 	border: none;

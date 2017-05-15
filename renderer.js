@@ -13,10 +13,6 @@ ipc.on("showSurprise", (event, data) => {
 	}
 })
 
-ipc.on("hide", (event) => {
-	document.getElementById('secretSection').style.display="none"
-})
-
 const apiUrl = (term) => {
 	return `http://api.giphy.com/v1/gifs/search?q=${term}&api_key=dc6zaTOxFJmzC`;
 };
