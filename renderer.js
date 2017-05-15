@@ -3,15 +3,21 @@
 // All of the Node.js APIs are available in this process.
 
 let axios = require('axios');
-const ipc = require('electron').ipcRenderer
 
-ipc.on("showSurprise", (event, data) => {
-	if (document.getElementById('secretSection').style.display == "none"){
-			document.getElementById('secretSection').style.display = "flex";
-	} else {
-		document.getElementById('secretSection').style.display = "none";
-	}
-})
+// initialize ipc renderer here
+
+// const ipc = require('electron').ipcRenderer
+
+
+// Put function for toggling css display here
+
+// ipc.on("showSurprise", (event, data) => {
+// 	if (document.getElementById('secretSection').style.display == "none"){
+// 			document.getElementById('secretSection').style.display = "flex";
+// 	} else {
+// 		document.getElementById('secretSection').style.display = "none";
+// 	}
+// })
 
 const apiUrl = (term) => {
 	return `http://api.giphy.com/v1/gifs/search?q=${term}&api_key=dc6zaTOxFJmzC`;

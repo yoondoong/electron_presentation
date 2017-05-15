@@ -6,8 +6,8 @@ const BrowserWindow = electron.BrowserWindow
 
 const path = require('path')
 const url = require('url')
-const globalShortcut = electron.globalShortcut
-const ipc = require('electron').ipcMain
+// const globalShortcut = electron.globalShortcut
+// const ipc = require('electron').ipcMain
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -41,14 +41,15 @@ function createWindow () {
 // Some APIs can only be used after this event occurs.
 app.on('ready', function () {
   createWindow();
-  // Register a 'CommandOrControl+X' shortcut listener.
-  const ret = globalShortcut.register('CommandOrControl+P', () => {
-    mainWindow.webContents.send('showSurprise')
-  });
 
-  if (!ret) {
-    console.log('registration failed');
-  }
+  // Register a 'CommandOrControl+X' shortcut listener.
+  // const ret = globalShortcut.register('CommandOrControl+P', () => {
+  //   mainWindow.webContents.send('showSurprise')
+  // });
+  //
+  // if (!ret) {
+  //   console.log('registration failed');
+  // }
 })
 
 // Quit when all windows are closed.
