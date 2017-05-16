@@ -48,7 +48,7 @@ Now you can run `electron .` to run the app, and it works!! Yay! Now we're going
 Aaaaannnd Psych!
 ----
 
-We actually have a customized start repository, which is this one! Now fork it and delete the old repo!
+We actually have a customized start repository, which is this one! Now fork it and delete the one you just created!
 
 So from your command line:
 
