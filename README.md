@@ -145,10 +145,6 @@ npm install --save axios
 ```
 And run `electron .` again, gifs now will be displayed when you press enter in the search bar, it's simple as that.
 
-```javascript
-require('./renderer.js')
-```
-
 ## Step 2: Keyboard Shortcut
 Set up global keyboard shortcut in `main.js`. First we do this by importing ipc and global keyboard shortcut.
 
