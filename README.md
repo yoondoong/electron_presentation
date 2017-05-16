@@ -191,32 +191,45 @@ Got that working? Great! Here are a couple more shortcuts that you can throw in 
 ```javascript
 const ret2 = globalShortcut.register('CommandOrControl+Q', () => {
     app.quit()
-  })
+})
 ```
 
 ```javascript
-  const ret3 = globalShortcut.register('CommandOrControl+H', () => {
+const ret3 = globalShortcut.register('CommandOrControl+H', () => {
     app.hide()
-  })
+})
 ```
 
 ```javascript
-  const ret4 = globalShortcut.register('CommandOrControl+S', () => {
+const ret4 = globalShortcut.register('CommandOrControl+S', () => {
     console.log('CommandOrControl+S is pressed')
     app.show()
-  })
+})
  ```
 
 ```javascript
-  const ret5 = globalShortcut.register('CommandOrControl+T', () => {
+const ret5 = globalShortcut.register('CommandOrControl+T', () => {
     console.log('CommandOrControl+T is pressed')
     createWindow(true, true)
-  })
+})
 ```
 
 ```javascript
- const ret6 = globalShortcut.register('CommandOrControl+F', () => {
+const ret6 = globalShortcut.register('CommandOrControl+F', () => {
     console.log('CommandOrControl+F is pressed')
     createWindow(false, false)
-  })
- ```
+})
+```
+
+Last step: Packaging
+----
+
+You've created a wonderful app, and you want to distribute it to other people, how do you do that? Simple
+
+```bash
+electron-cli pack
+```
+
+Look around, there's a new folder with your app in it!
+
+Done! If you want to distribute for other platforms, you will need to add support for multiple architectures but those things are widely available on the net. e.g. [here](http://electron.rocks/electron-angular-packing-and-distribution/).
