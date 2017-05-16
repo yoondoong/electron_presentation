@@ -173,7 +173,7 @@ Now we want to make sure that our `renderer.js` which is actually run in our `in
 const ipc = require('electron').ipcRenderer
 ```
 
-Finally, we can now write a function that runs every time our `renderer.js` receives the prompt from
+We can now write a function that runs every time our `renderer.js` receives the prompt from
 the keyboard shortcut. 
 
 ```javascript
@@ -185,3 +185,38 @@ ipc.on("showSurprise", (event, data) => {
 	}
 })
 ```
+
+Got that working? Great! Here are a couple more shortcuts that you can throw in in the same place as the first shortcut in main.js which we you don't need the ipc for as they interact directly with the main Electron window. Play around with them and see what they do!
+
+```javascript
+const ret2 = globalShortcut.register('CommandOrControl+Q', () => {
+    app.quit()
+  })
+```
+
+```javascript
+  const ret3 = globalShortcut.register('CommandOrControl+H', () => {
+    app.hide()
+  })
+```
+
+```javascript
+  const ret4 = globalShortcut.register('CommandOrControl+S', () => {
+    console.log('CommandOrControl+S is pressed')
+    app.show()
+  })
+ ```
+
+```javascript
+  const ret5 = globalShortcut.register('CommandOrControl+T', () => {
+    console.log('CommandOrControl+T is pressed')
+    createWindow(true, true)
+  })
+```
+
+```javascript
+ const ret6 = globalShortcut.register('CommandOrControl+F', () => {
+    console.log('CommandOrControl+F is pressed')
+    createWindow(false, false)
+  })
+ ```
