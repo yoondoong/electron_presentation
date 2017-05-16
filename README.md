@@ -63,7 +63,7 @@ npm install
 npm start
 ```
 
-## Step 1: Basics
+Step 1: Basics
 ----
 First, in `main.js` **comment out** the line that reads
 
@@ -93,7 +93,7 @@ Oh and don't forget to include the supplied styling file in `index.html`, took m
 
 And if there are other decorations you'd like to add, charge ahead.
 
-Functionalities
+Step 2: Functionalities
 ----
 But if you have noticed, this app doesn't really do much does it? So we'll have to add the business logic in `renderer.js`, you can call it otherwise in your own project. Now add the following lines to your `renderer.js`
 ```javascript
@@ -145,7 +145,8 @@ npm install --save axios
 ```
 And run `electron .` again, gifs now will be displayed when you press enter in the search bar, it's simple as that.
 
-## Step 2: Keyboard Shortcut
+Step 3: Keyboard Shortcut
+----
 Set up global keyboard shortcut in `main.js`. First we do this by importing ipc and global keyboard shortcut.
 
 ```javascript
