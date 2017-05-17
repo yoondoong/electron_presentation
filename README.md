@@ -154,15 +154,14 @@ const globalShortcut = electron.globalShortcut
 ```
 
 Now go to `app.on('ready')`. Inside here, we want to set up a const `ret` to which we register a keyboard shortcut. This means that once the electron app is initialized, it assigns a function to whatever shortcut we give it. 
-You would register a shortcut as follows:
+You would register a keyboard shortcut for ctrl/cmd + Q as follows:
 
 ```javascript
 const ret = globalShortcut.register('CommandOrControl+Q', () => {
     app.quit()
 })
 ```
-
-If you got that working, try binding a few shortcuts of your own. Also inside `app.on('ready')` try setting up a shortcut for each of the following in-built Electron functions:
+Your app should now quit if you press ctrl/cmd + Q. If you got that working, try binding a few shortcuts of your own. Also inside `app.on('ready')` try setting up a different keyboard shortcut for each of the other following in-built Electron functions:
 
 ```javascript
 	app.hide()
