@@ -225,7 +225,7 @@ ipc.on("showSurprise", (event, data) => {
 })
 ```
 
-The `ipc.on(String)` is what allows our function to listen for ipc commmands sent by main.js. 
+The `ipc.on(String)` is what allows our function to listen for ipc prompts in the form of Strings sent by main.js. 
 
 Now try running Electron and pressing Ctrl/Cmd + P. You should see a change at the bottom of the window. Which is great, as you can now bind keyboard shortcuts that execute your very own javascript!
 
