@@ -18,7 +18,7 @@ Normally, to get started, we will install electron client tools using `npm insta
 npm install electron-cli electron -g
 ```
 
-Find an empty directory where you want to put your electron folder, and
+Find any empty directory where you want to put your electron folder, and
 
 ```bash    
 electron-cli init your-app-name
