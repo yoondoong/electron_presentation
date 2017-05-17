@@ -161,12 +161,25 @@ const ret = globalShortcut.register('CommandOrControl+Q', () => {
     app.quit()
 })
 ```
-Your app should now quit if you press ctrl/cmd + Q. If you got that working, try binding a few shortcuts of your own. Also inside `app.on('ready')` try setting up a different keyboard shortcut for each of the other following in-built Electron functions:
+Your app should now quit if you press ctrl/cmd + Q. If you got that working, try binding a few shortcuts of your own. Also inside `app.on('ready')` try binding the following keyboard shortcuts to each of the other following in-built Electron functions:
 
+Ctrl/cmd + H
 ```javascript
 	app.hide()
+```
+
+Ctrl/cmd + S
+```javascript
 	app.show()
+```
+
+Ctrl/cmd + N
+```javascript
 	createWindow(true, true)
+```
+
+Ctrl/cmd + F
+```javascript
 	createWindow(false, false)
 ```
 
