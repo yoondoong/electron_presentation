@@ -240,4 +240,4 @@ electron-cli pack
 
 Look around, there's a new folder with your app in it!
 
-Done! If you want to distribute for other platforms, you will need to add support for multiple architectures but those things are widely available on the net. e.g. [here](http://electron.rocks/electron-angular-packing-and-distribution/).
+Done! If you want to distribute for other platforms, you will need to add support for multiple architectures but those things are widely available on the net. e.g. [here](https://www.npmjs.com/package/electron-builder).
