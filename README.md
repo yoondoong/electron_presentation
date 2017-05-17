@@ -1,8 +1,8 @@
 # Electron Workshop
 
-**Clone and run for a quick way to see Electron in action.**
+**A quick way to see Electron in action.**
 
-This is a minimal Electron application based on the [Quick Start Guide](http://electron.atom.io/docs/tutorial/quick-start) within the Electron documentation.
+We are going to build a minimal Electron application based on the [Quick Start Guide](http://electron.atom.io/docs/tutorial/quick-start) within the Electron documentation.
 
 **Use this app along with the [Electron API Demos](http://electron.atom.io/#get-started) app for API code examples to help you get started.**
 
@@ -24,7 +24,7 @@ Find an empty directory where you want to put your electron folder, and
 electron-cli init your-app-name
 ```
 
-electron-cli is a command line tool that helps you  set up an Electron dev environment quickly. You will see multiple options given by the init script, say whatever you want, but be sure to check `Y` for the boilerplate option, this will let Electron provide a basic template for you app.
+`electron-cli` is a command line tool that helps you  set up an Electron dev environment quickly. You will see multiple options given by the init script, say whatever you want, but be sure to check `Y` for the boilerplate option, this will let Electron provide a basic template for you app.
 
 Upon completion you should see a file structure like this
 
