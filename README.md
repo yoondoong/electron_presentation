@@ -97,10 +97,6 @@ Step 2: Functionalities
 ----
 But if you have noticed, this app doesn't really do much does it? So we'll have to add the business logic in `renderer.js`, you can call it otherwise in your own project. Now add the following lines to your `renderer.js`
 ```javascript
-// This file is required by the index.html file and will
-// be executed in the renderer process for that window.
-// All of the Node.js APIs are available in this process.
-
 let axios = require('axios');
 
 const apiUrl = (term) => {
@@ -135,7 +131,7 @@ Again, include it in `index.html`, it's just like a web app! Except this time yo
 ```html
 <script>
     require('./renderer.js')
-<script/>
+</script>
 ```
 towards the end of `index.html` file, inside `<html>` and after `<body>`. 
 
@@ -217,8 +213,8 @@ We can now write a function that runs every time our `renderer.js` receives the 
 
 ```javascript
 ipc.on("showSurprise", (event, data) => {
-	if (document.getElementById('secretSection').style.display == "none"){
-			document.getElementById('secretSection').style.display = "flex";
+    if (document.getElementById('secretSection').style.display == "none"){
+        document.getElementById('secretSection').style.display = "flex";
 	} else {
 		document.getElementById('secretSection').style.display = "none";
 	}
