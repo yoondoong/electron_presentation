@@ -10,6 +10,11 @@ You can learn more about each of these components within the [Quick Start Guide]
 
 Let's get down to business.
 
+## Overview
+
+We're going to create a small desktop app that returns a GIF based on a keyword. Then we're going to bind some keyboard shortcuts to do a variety of things, including closing the window, creating a new window, and changing the HTML/css of the contents.
+
+
 ## To Use
 
 Normally, to get started, we will install electron client tools using `npm install`:
