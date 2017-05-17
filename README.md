@@ -147,34 +147,61 @@ And run `electron .` again, gifs now will be displayed when you press enter in t
 
 Step 3: Keyboard Shortcut
 ----
-Set up global keyboard shortcut in `main.js`. First we do this by importing ipc and global keyboard shortcut.
+Now we're going to set up global keyboard shortcut in `main.js`. First we do this by importing global keyboard shortcut.
 
 ```javascript
 const globalShortcut = electron.globalShortcut
+```
+
+Now go to `app.on('ready')`. Inside here, we want to set up a const `ret` to which we register a keyboard shortcut. This means that once the electron app is initialized, it assigns a function to whatever shortcut we give it. 
+You would register a shortcut as follows:
+
+```javascript
+const ret = globalShortcut.register('CommandOrControl+Q', () => {
+    app.quit()
+})
+```
+
+If you got that working, try binding a few shortcuts of your own. Also inside `app.on('ready')` try setting up a shortcut for each of the following in-built Electron functions:
+
+```javascript
+	app.hide()
+	app.show()
+	createWindow(true, true)
+	createWindow(false, false)
+```
+
+Awesome! You've bound your own keyboard shortcuts and you look great today.
+
+Step 3.5: Keyboard Shortcut (Cont.)
+----
+
+The keyboard functions we've bound so far execute inbuilt Electron functions. What if we want our shortcuts to execute javascript that we have written ourselves, for example code that we have in renderer.js? That's what we're going to do now!
+
+First, we're going to want to import ipc into our main.js. Ipc is an in-built electron package that allows the main.js file to communicate with other js files in our electron app. At the top of main.js initialize:
+
+```javascript
 const ipc = require('electron').ipcMain
 ```
 
-Now go to `app.on('ready')`. Inside here, we set up a const `ret` to which we register a keyboard shortcut.
-This means that every time our designated keyboard shortcut is pressed, it sends a string. 
+Now we're going to register a new shortcut in our `app.on('ready')` file. Put in the following function:
 
 ```javascript
   const ret = globalShortcut.register('CommandOrControl+P', () => {
     mainWindow.webContents.send('showSurprise')
   });
-
-  if (!ret) {
-    console.log('registration failed');
-  }
 ```
 
-Now we want to make sure that our `renderer.js` which is actually run in our `index.html` can receive the prompts from our keyboard shortcut. At the top of `renderer.js`, declare the `ipc` variable. 
+What's going on here? Well, instead of executing a function, this keyboard shortcut seems to instead send the string `('showSurprise')` somewhere. In fact, it's going to send this string to our renderer.js file, so let's make sure that our renderer.js file can receive this string and act appropriately once it does. 
+
+
+In order to make sure that our `renderer.js` which is actually run in our `index.html` can receive the prompts from our keyboard shortcut, at the top of `renderer.js`, we want to declare the `ipc` variable. 
 
 ```javascript
 const ipc = require('electron').ipcRenderer
 ```
 
-We can now write a function that runs every time our `renderer.js` receives the prompt from
-the keyboard shortcut. 
+We can now write a function that runs every time our `renderer.js` receives the prompt from the keyboard shortcut. 
 
 ```javascript
 ipc.on("showSurprise", (event, data) => {
@@ -186,40 +213,9 @@ ipc.on("showSurprise", (event, data) => {
 })
 ```
 
-Got that working? Great! Here are a couple more shortcuts that you can throw in in the same place as the first shortcut in main.js which we you don't need the ipc for as they interact directly with the main Electron window. Play around with them and see what they do!
+The `ipc.on(String)` is what allows our function to listen for ipc commmands sent by main.js. 
 
-```javascript
-const ret2 = globalShortcut.register('CommandOrControl+Q', () => {
-    app.quit()
-})
-```
-
-```javascript
-const ret3 = globalShortcut.register('CommandOrControl+H', () => {
-    app.hide()
-})
-```
-
-```javascript
-const ret4 = globalShortcut.register('CommandOrControl+S', () => {
-    console.log('CommandOrControl+S is pressed')
-    app.show()
-})
- ```
-
-```javascript
-const ret5 = globalShortcut.register('CommandOrControl+T', () => {
-    console.log('CommandOrControl+T is pressed')
-    createWindow(true, true)
-})
-```
-
-```javascript
-const ret6 = globalShortcut.register('CommandOrControl+F', () => {
-    console.log('CommandOrControl+F is pressed')
-    createWindow(false, false)
-})
-```
+Now try running Electron and pressing Ctrl/Cmd + P. You should see a change at the bottom of the window. Which is great, as you can now bind keyboard shortcuts that execute your very own javascript!
 
 Last step: Packaging
 ----
