@@ -48,7 +48,7 @@ A basic Electron application needs just these files:
 
 Now you can run `electron .` to run the app, and it works!! Yay! Now we're going to make it look nicer.
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 Aaaaannnd Psych!
 ----
