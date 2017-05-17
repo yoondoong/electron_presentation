@@ -12,7 +12,7 @@ Let's get down to business.
 
 ## Overview
 
-We're going to create a small desktop app that returns a GIF based on a keyword. Then we're going to bind some keyboard shortcuts to do a variety of things, including closing the window, creating a new window, and changing the HTML/css of the contents.
+We're going to create a small desktop app that returns a GIF based on a keyword. Then we're going to bind some keyboard shortcuts to do a variety of things, including closing the window, creating a new window, and changing the HTML/css of our contents.
 
 
 ## To Use
