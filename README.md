@@ -224,6 +224,34 @@ Now try running Electron and pressing Ctrl/Cmd + P. You should see a change at t
 
 ![Image 2](imgs/3.png)
 
+Step 3.7: Remote
+Add to top of renderer.js
+```javascript
+const remote = require('electron').remote;
+```
+
+The following is adapted from [here](http://stackoverflow.com/questions/31171597/atom-electron-close-the-window-with-javascript)
+```javascript
+ document.getElementById("min-btn").addEventListener("click", function (e) {
+      var win = remote.getCurrentWindow();
+      win.minimize();
+ });
+
+ document.getElementById("max-btn").addEventListener("click", function (e) {
+      var win = remote.getCurrentWindow();
+      if (!win.isMaximized()) {
+          win.maximize();
+      } else {
+          win.unmaximize();
+      }
+ });
+
+ document.getElementById("close-btn").addEventListener("click", function (e) {
+      var win = remote.getCurrentWindow();
+      win.close();
+ });
+```
+
 Last step: Packaging
 ----
 
