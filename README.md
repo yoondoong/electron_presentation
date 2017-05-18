@@ -246,7 +246,8 @@ Last step: Packaging
 You've created a wonderful app, and you want to distribute it to other people, how do you do that? Simple
 
 ```bash
-electron-cli pack
+npm install -g electron-packager
+electron-packager .
 ```
 
 Look around, there's a new folder with your app in it!
