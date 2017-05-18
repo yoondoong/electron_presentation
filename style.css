@@ -57,3 +57,8 @@ body {
 	font-size: 25px;
 	font-family: sans-serif;
 }
+
+button {
+	-webkit-app-region: no-drag;
+	color: blue;
+}
