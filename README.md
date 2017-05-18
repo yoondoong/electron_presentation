@@ -158,7 +158,7 @@ Now go to `app.on('ready')`. Inside here, we want to set up a const `ret` to whi
 You would register a keyboard shortcut for ctrl/cmd + E as follows:
 
 ```javascript
-const ret = globalShortcut.register('CommandOrControl+E', () => {
+globalShortcut.register('CommandOrControl+E', () => {
     app.quit()
 })
 ```
@@ -200,7 +200,7 @@ const ipc = require('electron').ipcMain
 Now we're going to register a new shortcut in our `app.on('ready')` file. Put in the following function:
 
 ```javascript
-  const ret = globalShortcut.register('CommandOrControl+P', () => {
+  globalShortcut.register('CommandOrControl+P', () => {
     mainWindow.webContents.send('showSurprise')
   });
 ```
