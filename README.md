@@ -197,6 +197,16 @@ First, we're going to want to import ipc into our main.js. Ipc is an in-built el
 const ipc = require('electron').ipcMain
 ```
 
+Then in `index.html`, below the search bar and image, add a secret section
+
+```html
+<div id="secretSection" style="display: none">
+  <p class="secret_text"> <b> CLASSIFIED  </b> </p>
+  <img id="secret_gif" src="./puppies/1.gif" />
+  <p class="secret_text"> <b> Don't tell anyone or <br/> I'll kill you </b> </p>
+</div>
+```
+
 Now we're going to register a new shortcut in our `app.on('ready')` file. Put in the following function:
 
 ```javascript
