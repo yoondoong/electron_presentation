@@ -14,52 +14,31 @@ Let's get down to business.
 
 We're going to create a small desktop app that returns a GIF based on a keyword. Then we're going to bind some keyboard shortcuts to do a variety of things, including closing the window, creating a new window, and changing the HTML/css of our contents.
 
+An Electron app has the following basic file structure:
+
+	|-Your Folder
+		|---index.html
+		|---main.js
+		|---package.json
+		|---node_modules
+		|------blah blah blah
+
+
+To run, a basic Electron application needs just these three files:
+
+- `package.json` - Points to the app's main file and lists its details and dependencies.
+- `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
+- `index.html` - A web page to render. This is the app's **renderer process**.  
 
 ## To Use
 
-Normally, to get started, we will install electron client tools using `npm install`:
+To get started, fork this repo and install electron client tools using `npm install`:
 
 ```bash
 npm install electron-cli electron -g
 ```
 
-Find any empty directory where you want to put your electron folder, and
-
-```bash    
-electron-cli init your-app-name
-```
-
-`electron-cli` is a command line tool that helps you  set up an Electron dev environment quickly. You will see multiple options given by the init script, say whatever you want, but be sure to check `Y` for the boilerplate option, this will let Electron provide a basic template for you app.
-
-Upon completion you should see a file structure like this
-
-    |-Your Folder
-       |---index.html
-       |---main.js
-       |---package.json
-       |---node_modules
-       |------blah blah blah
-
-A basic Electron application needs just these files:
-
-- `package.json` - Points to the app's main file and lists its details and dependencies.
-- `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
-- `index.html` - A web page to render. This is the app's **renderer process**.
-
-Now you can run `electron .` to run the app, and it works!! Yay! Now we're going to make it look nicer.
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-Aaaaannnd Psych!
-----
-
-We actually have a customized start repository, which is this one! Now fork it and delete the one you just created!
-
-So from your command line:
-
 ```bash
-# Clone this repository
-git clone https://github.com/Pspanky/electron_presentation
 # Go into the repository
 cd electron_presentation
 # Install dependencies
@@ -95,6 +74,7 @@ Oh and don't forget to include the supplied styling file in `index.html`, took m
 ```html
 <link rel="stylesheet" type="text/css" href="style.css">
 ```
+![Image 1](imgs/1.png)
 
 And if there are other decorations you'd like to add, charge ahead.
 
@@ -145,6 +125,8 @@ Finally
 npm install --save axios
 ```
 And run `electron .` again, gifs now will be displayed when you press enter in the search bar, it's simple as that.
+
+![Image 2](imgs/pizza.png)
 
 Step 3: Keyboard Shortcut
 ----
@@ -239,6 +221,8 @@ ipc.on("showSurprise", (event, data) => {
 The `ipc.on(String)` is what allows our function to listen for ipc prompts in the form of Strings sent by main.js. 
 
 Now try running Electron and pressing Ctrl/Cmd + P. You should see a change at the bottom of the window. Which is great, as you can now bind keyboard shortcuts that execute your very own javascript!
+
+![Image 2](imgs/3.png)
 
 Last step: Packaging
 ----
