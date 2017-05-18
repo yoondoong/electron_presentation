@@ -238,7 +238,7 @@ Add the following to top of body tag in `index.html`
 <button id= "close-btn">Close</button>
 ```
 
-Add the following, adapted from [here], to the bottom of `renderer.js`(http://stackoverflow.com/questions/31171597/atom-electron-close-the-window-with-javascript)
+Add the following, adapted from [here](http://stackoverflow.com/questions/31171597/atom-electron-close-the-window-with-javascript), to the bottom of `renderer.js`
 
 ```javascript
 document.getElementById("min-btn").addEventListener("click", function (e) {
